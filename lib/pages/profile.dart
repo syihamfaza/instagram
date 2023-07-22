@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/painting/gradient.dart';
 
+import '../widgets/Profile_Picture.dart';
+
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
@@ -48,36 +50,7 @@ class ProfilePage extends StatelessWidget {
         children: [
           Row(
             children: [
-              Stack(
-                alignment: Alignment.center,
-                children: [
-                  Container(
-                    width: 80,
-                    height: 80,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [Colors.red, Colors.amber],
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                      ),
-                      borderRadius: BorderRadius.circular(60),
-                    ),
-                  ),
-                  Container(
-                    width: 73,
-                    height: 73,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: NetworkImage("https://picsum.photos/536/354"),
-                        fit: BoxFit.cover,
-                      ),
-                      color: Colors.blue,
-                      border: Border.all(color: Colors.white, width: 2),
-                      borderRadius: BorderRadius.circular(60),
-                    ),
-                  ),
-                ],
-              ),
+              ProfilePicture(),
             ],
           ),
         ],
