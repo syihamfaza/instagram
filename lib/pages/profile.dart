@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/painting/gradient.dart';
-
 import '../widgets/Profile_Picture.dart';
+import '../widgets/info_item.dart';
+import '../widgets/tab_item.dart';
+import '../widgets/story_item.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -39,51 +40,127 @@ class ProfilePage extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {},
-            icon: Icon(
-              Icons.menu,
-              color: Colors.black,
-            ),
+            icon: Icon(Icons.menu),
           ),
         ],
       ),
       body: ListView(
         children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Row(
+              children: [
+                ProfilePicture(),
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      InfoItem("Post", "0"),
+                      InfoItem("Followers", "2000"),
+                      InfoItem("Following", "1"),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 15),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Text(
+              "fazasyiham",
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          SizedBox(height: 5),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: RichText(
+              text: TextSpan(
+                text:
+                    "No Capt ",
+                style: TextStyle(
+                  color: Colors.black,
+                ),
+                children: [
+                  TextSpan(
+                    text: "#hastag",
+                    style: TextStyle(
+                      color: Colors.blue,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(height: 5),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Text(
+              "Link goes here",
+              style: TextStyle(
+                color: Colors.blue,
+              ),
+            ),
+          ),
+          SizedBox(height: 5),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: OutlinedButton(
+              onPressed: () {},
+              child: Text(
+                "Edit Profile",
+                style: TextStyle(
+                  color: Colors.black,
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height: 5),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  StoryItem("Me"),
+                  StoryItem("Trip"),
+                  StoryItem("Family"),
+                  StoryItem("Other"),
+                  StoryItem("Jualan"),
+                  StoryItem("Testi"),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(height: 15),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              ProfilePicture(),
+              TabItem(Icons.grid_on_outlined, true),
+              TabItem(Icons.person_pin_outlined, false),
             ],
           ),
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 4,
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.grey,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: "Search",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.movie_filter_rounded),
-            label: "Reels",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_basket_rounded),
-            label: "Shop",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: "Profile",
+          GridView.builder(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            itemCount: 5,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+              mainAxisSpacing: 4,
+              crossAxisSpacing: 4,
+            ),
+            itemBuilder: (context, index) => Image.network(
+              "https://picsum.photos/id/${index + 100}/536/354",
+              fit: BoxFit.cover,
+            ),
           ),
         ],
       ),
+      
     );
   }
 }
