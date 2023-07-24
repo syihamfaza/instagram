@@ -41,6 +41,7 @@ class ProfilePage extends StatelessWidget {
           IconButton(
             onPressed: () {},
             icon: Icon(Icons.menu),
+            color: Colors.black,
           ),
         ],
       ),
@@ -55,8 +56,8 @@ class ProfilePage extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      InfoItem("Post", "0"),
-                      InfoItem("Followers", "2000"),
+                      InfoItem("Post", "5"),
+                      InfoItem("Followers", "2M"),
                       InfoItem("Following", "1"),
                     ],
                   ),
@@ -68,7 +69,7 @@ class ProfilePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Text(
-              "fazasyiham",
+              "haha",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -80,14 +81,13 @@ class ProfilePage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: RichText(
               text: TextSpan(
-                text:
-                    "No Capt ",
+                text: "PART TIME TRAVELLER ",
                 style: TextStyle(
                   color: Colors.black,
                 ),
                 children: [
                   TextSpan(
-                    text: "#hastag",
+                    text: "",
                     style: TextStyle(
                       color: Colors.blue,
                     ),
@@ -100,7 +100,7 @@ class ProfilePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Text(
-              "Link goes here",
+              "github.com/syihamfaza",
               style: TextStyle(
                 color: Colors.blue,
               ),
@@ -160,7 +160,6 @@ class ProfilePage extends StatelessWidget {
           ),
         ],
       ),
-      
     );
   }
 }

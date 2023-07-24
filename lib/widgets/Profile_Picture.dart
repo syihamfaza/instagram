@@ -30,7 +30,7 @@ class ProfilePicture extends StatelessWidget {
               image: NetworkImage("https://picsum.photos/536/354"),
               fit: BoxFit.cover,
             ),
-            color: Colors.blue,
+            color: Colors.grey,
             border: Border.all(color: Colors.white, width: 2),
             borderRadius: BorderRadius.circular(60),
           ),
